@@ -33,4 +33,4 @@ HiddenTabby uses information accessed through Chrome extension APIs only to prov
 
 ## Contact
 
-For privacy questions, use the [HiddenTabby issue tracker](https://github.com/cleaver/hiddentabby/issues).
+For privacy questions, contact [privacy@hiddentabby.com](mailto:privacy@hiddentabby.com).
