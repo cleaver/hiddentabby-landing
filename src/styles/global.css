@@ -167,6 +167,9 @@ h1 em, h2 em { color: var(--forest); font-weight: 500; }
 .footer-inner > p { margin: 0; color: #859085; font-size: 10px; }
 .footer-links { display: flex; gap: 18px; margin-left: auto; }
 .footer-links a, .footer-links span { color: #7f887d; font-size: 9px; }
+.footer-links .github-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 8px; border: 1px solid rgba(28, 50, 40, .17); border-radius: 999px; color: var(--forest); line-height: 1; text-decoration: none; white-space: nowrap; }
+.footer-links .github-badge svg { width: 11px; height: 11px; flex: 0 0 auto; fill: currentColor; }
+.footer-links .github-badge:hover { border-color: rgba(28, 50, 40, .3); color: var(--orange); }
 .copyright { color: #92978c; font-size: 9px; }
 
 .privacy-page { padding-block: 72px 100px; }
@@ -190,6 +193,9 @@ h1 em, h2 em { color: var(--forest); font-weight: 500; }
 }
 @media (max-width: 920px) {
   .container { width: min(100% - 42px, 760px); }
+  .footer-inner { flex-wrap: wrap; gap: 10px 15px; }
+  .footer-links { flex: 1 0 100%; justify-content: space-between; margin: 7px 0 0; }
+  .copyright { display: none; }
   .hero { grid-template-columns: 1fr .95fr; gap: 30px; min-height: 590px; padding-top: 45px; padding-bottom: 62px; }
   .hero h1 { font-size: clamp(50px, 7vw, 66px); }
   .hero-visual { padding-inline: 0; }
