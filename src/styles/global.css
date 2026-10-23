@@ -172,20 +172,20 @@ h1 em, h2 em { color: var(--forest); font-weight: 500; }
 .footer-links .github-badge:hover { border-color: rgba(28, 50, 40, .3); color: var(--orange); }
 .copyright { color: #92978c; font-size: 9px; }
 
-.privacy-page { padding-block: 72px 100px; }
+.document-page { padding-block: 72px 100px; }
 .back-link { display: inline-block; margin-bottom: 51px; color: var(--forest); text-decoration: none; font-size: 12px; font-weight: 700; }
 .back-link:hover { color: var(--orange); }
-.privacy-page h1 { margin-bottom: 15px; font-size: clamp(52px, 7vw, 78px); line-height: 1; }
-.privacy-lede { max-width: 690px; margin-bottom: 47px; color: #667268; font-size: 16px; line-height: 1.7; }
-.policy-content { max-width: 770px; padding-top: 12px; border-top: 1px solid var(--line); }
-.policy-content > h2 { margin: 0 0 9px; padding-top: 25px; border-top: 1px solid var(--line); color: var(--forest); font-family: inherit; font-size: 17px; font-weight: 730; letter-spacing: -.02em; }
-.policy-content > h2:first-child { border-top: 0; }
-.policy-content > p, .policy-content > ul { margin-bottom: 10px; color: #647167; font-size: 13px; line-height: 1.8; }
-.policy-content > ul { padding-left: 21px; }
-.policy-content > ul li + li { margin-top: 5px; }
-.policy-content > :last-child { margin-bottom: 0; padding-bottom: 25px; border-bottom: 1px solid var(--line); }
-.policy-content a { color: var(--forest); text-underline-offset: 3px; }
-.policy-content code { padding: 2px 5px; border-radius: 4px; background: #ece8db; font-size: 11px; }
+.document-page h1 { margin-bottom: 15px; font-size: clamp(52px, 7vw, 78px); line-height: 1; }
+.document-lede { max-width: 690px; margin-bottom: 47px; color: #667268; font-size: 16px; line-height: 1.7; }
+.document-content { max-width: 770px; padding-top: 12px; border-top: 1px solid var(--line); }
+.document-content > h2 { margin: 0 0 9px; padding-top: 25px; border-top: 1px solid var(--line); color: var(--forest); font-family: inherit; font-size: 17px; font-weight: 730; letter-spacing: -.02em; }
+.document-content > h2:first-child { border-top: 0; }
+.document-content > p, .document-content > ul { margin-bottom: 10px; color: #647167; font-size: 13px; line-height: 1.8; }
+.document-content > ul { padding-left: 21px; }
+.document-content > ul li + li { margin-top: 5px; }
+.document-content > :last-child { margin-bottom: 0; padding-bottom: 25px; border-bottom: 1px solid var(--line); }
+.document-content a { color: var(--forest); text-underline-offset: 3px; }
+.document-content code { padding: 2px 5px; border-radius: 4px; background: #ece8db; font-size: 11px; }
 
 :focus-visible { outline: 3px solid #d68442; outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
@@ -261,9 +261,9 @@ h1 em, h2 em { color: var(--forest); font-weight: 500; }
   .footer-inner > p { width: calc(100% - 155px); margin-left: auto; text-align: right; }
   .footer-links { width: 100%; justify-content: space-between; margin: 7px 0 0; }
   .copyright { display: none; }
-  .privacy-page { padding-block: 47px 72px; }
+  .document-page { padding-block: 47px 72px; }
   .back-link { margin-bottom: 38px; }
-  .privacy-lede { font-size: 14px; }
-  .policy-content h2 { font-size: 15px; }
-  .policy-content p { font-size: 12px; }
+  .document-lede { font-size: 14px; }
+  .document-content h2 { font-size: 15px; }
+  .document-content p { font-size: 12px; }
 }
