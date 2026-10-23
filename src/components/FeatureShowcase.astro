@@ -1,0 +1,138 @@
+---
+const { id = "feature-showcase" } = Astro.props;
+
+const features = [
+  {
+    id: "manage",
+    label: "THE WORKSPACE MANAGER",
+    title: "All your groups, in one place.",
+    description: "Rename, recolor, reorder, or remove groups from the full-page Workspace Manager.",
+    image: "/assets/manage-workspaces.png",
+    alt: "HiddenTabby Workspace Manager showing named tab groups and controls for opening them.",
+    number: "01",
+    tabTitle: "See all your groups",
+    tabDescription: "Manage the bigger picture",
+  },
+  {
+    id: "switch",
+    label: "ONE-CLICK SWITCHING",
+    title: "Change focus in a click.",
+    description: "Choose a group in the toolbar popup to bring its saved tabs back across the windows that belong to it.",
+    image: "/assets/switch-workspaces.png",
+    alt: "HiddenTabby toolbar popup with a list of workspaces to switch between.",
+    number: "02",
+    tabTitle: "Switch your focus",
+    tabDescription: "Jump between workspaces",
+  },
+  {
+    id: "move",
+    label: "DRAG AND DROP",
+    title: "Put a tab where it belongs.",
+    description: "Move tabs between groups in the Workspace Manager and keep related browsing together.",
+    image: "/assets/move-tabs.png",
+    alt: "HiddenTabby Workspace Manager showing a tab being dragged from Work into Cats.",
+    number: "03",
+    tabTitle: "Move a tab along",
+    tabDescription: "Drag it where it belongs",
+  },
+];
+
+const [initialFeature] = features;
+const panelId = `${id}-panel`;
+---
+
+<div class="showcase" data-feature-showcase>
+  <div class="showcase-tabs" role="tablist" aria-label="Explore HiddenTabby features">
+    {features.map((feature, index) => (
+      <button
+        class:list={["showcase-tab", { "is-active": index === 0 }]}
+        id={`${id}-tab-${feature.id}`}
+        type="button"
+        role="tab"
+        aria-selected={index === 0 ? "true" : "false"}
+        aria-controls={panelId}
+        tabindex={index === 0 ? 0 : -1}
+        data-feature={feature.id}
+        data-label={feature.label}
+        data-title={feature.title}
+        data-description={feature.description}
+        data-image={feature.image}
+        data-alt={feature.alt}
+        data-number={feature.number}
+      >
+        <span class="tab-number">{feature.number}</span>
+        <span><strong>{feature.tabTitle}</strong><small>{feature.tabDescription}</small></span>
+        <span class="tab-arrow" aria-hidden="true">↗</span>
+      </button>
+    ))}
+
+    <div class="showcase-copy" aria-live="polite">
+      <p class="showcase-label" data-showcase-label>{initialFeature.label}</p>
+      <h3 data-showcase-title>{initialFeature.title}</h3>
+      <p data-showcase-description>{initialFeature.description}</p>
+    </div>
+    <p class="showcase-disclosure">Switching closes tabs from other groups. A restored page may lose unsaved form data, in-memory state, or running scripts.</p>
+  </div>
+
+  <div
+    class="showcase-panel"
+    id={panelId}
+    role="tabpanel"
+    aria-labelledby={`${id}-tab-${initialFeature.id}`}
+    tabindex="0"
+  >
+    <img data-showcase-image src={initialFeature.image} alt={initialFeature.alt} />
+    <span class="image-count" aria-hidden="true"><span data-showcase-number>{initialFeature.number}</span> <i></i> 03</span>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll("[data-feature-showcase]").forEach((showcase) => {
+    const tabs = Array.from(showcase.querySelectorAll("[role='tab']"));
+    const panel = showcase.querySelector("[role='tabpanel']");
+    const image = showcase.querySelector("[data-showcase-image]");
+    const label = showcase.querySelector("[data-showcase-label]");
+    const title = showcase.querySelector("[data-showcase-title]");
+    const description = showcase.querySelector("[data-showcase-description]");
+    const number = showcase.querySelector("[data-showcase-number]");
+
+    function selectFeature(tab, moveFocus = false) {
+      if (!tab || !panel || !image || !label || !title || !description || !number) return;
+
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.setAttribute("aria-selected", String(selected));
+        item.tabIndex = selected ? 0 : -1;
+        item.classList.toggle("is-active", selected);
+      });
+
+      image.src = tab.dataset.image;
+      image.alt = tab.dataset.alt;
+      label.textContent = tab.dataset.label;
+      title.textContent = tab.dataset.title;
+      description.textContent = tab.dataset.description;
+      number.textContent = tab.dataset.number;
+      panel.setAttribute("aria-labelledby", tab.id);
+
+      if (moveFocus) tab.focus();
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => selectFeature(tab));
+      tab.addEventListener("keydown", (event) => {
+        const currentIndex = tabs.indexOf(tab);
+        let nextIndex;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = (currentIndex + 1) % tabs.length;
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        if (event.key === "Home") nextIndex = 0;
+        if (event.key === "End") nextIndex = tabs.length - 1;
+
+        if (nextIndex !== undefined) {
+          event.preventDefault();
+          selectFeature(tabs[nextIndex], true);
+        }
+      });
+    });
+  });
+</script>

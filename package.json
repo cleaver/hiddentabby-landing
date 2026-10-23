@@ -1,0 +1,17 @@
+{
+  "name": "hiddentabby-landing",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "npm run build && node --test"
+  },
+  "devDependencies": {
+    "astro": "^7.4.2"
+  }
+}

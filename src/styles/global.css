@@ -175,10 +175,12 @@ h1 em, h2 em { color: var(--forest); font-weight: 500; }
 .privacy-page h1 { margin-bottom: 15px; font-size: clamp(52px, 7vw, 78px); line-height: 1; }
 .privacy-lede { max-width: 690px; margin-bottom: 47px; color: #667268; font-size: 16px; line-height: 1.7; }
 .policy-content { max-width: 770px; padding-top: 12px; border-top: 1px solid var(--line); }
-.policy-content section { padding-block: 25px; border-bottom: 1px solid var(--line); }
-.policy-content h2 { margin-bottom: 9px; color: var(--forest); font-family: inherit; font-size: 17px; font-weight: 730; letter-spacing: -.02em; }
-.policy-content p { margin-bottom: 10px; color: #647167; font-size: 13px; line-height: 1.8; }
-.policy-content p:last-child { margin-bottom: 0; }
+.policy-content > h2 { margin: 0 0 9px; padding-top: 25px; border-top: 1px solid var(--line); color: var(--forest); font-family: inherit; font-size: 17px; font-weight: 730; letter-spacing: -.02em; }
+.policy-content > h2:first-child { border-top: 0; }
+.policy-content > p, .policy-content > ul { margin-bottom: 10px; color: #647167; font-size: 13px; line-height: 1.8; }
+.policy-content > ul { padding-left: 21px; }
+.policy-content > ul li + li { margin-top: 5px; }
+.policy-content > :last-child { margin-bottom: 0; padding-bottom: 25px; border-bottom: 1px solid var(--line); }
 .policy-content a { color: var(--forest); text-underline-offset: 3px; }
 .policy-content code { padding: 2px 5px; border-radius: 4px; background: #ece8db; font-size: 11px; }
 

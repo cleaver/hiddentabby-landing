@@ -1,7 +1,11 @@
 # HiddenTabby landing page
 
-A buildless, static landing page for the HiddenTabby browser extension. The deployable files are in `dist/`; the matching HTML, CSS, JavaScript, and supplied images are kept at the project root as the editable source.
+A small static Astro site for the HiddenTabby browser extension. The homepage and privacy policy live in `src/pages/`; shared page chrome and the feature image switcher are Astro components. Images are in `public/assets/`, and Astro generates the deployable site in `dist/`.
 
-To preview the static files locally, run `python3 -m http.server 4173 --directory dist` from this directory and open `http://localhost:4173`.
+## Development
 
-The Chrome Web Store calls to action are placeholders for now. When the listing is live, replace the “coming soon” status in `index.html` with the listing link.
+Install dependencies with `npm install`, then run `npm run dev` to preview changes locally.
+
+Run `npm test` to build the static site and check the generated pages, feature switcher, privacy disclosures, and local images. `npm run preview` serves the most recent build.
+
+The build keeps the privacy policy at `/privacy.html` for the Chrome Web Store policy link. The store listing calls to action remain placeholders; replace them with the listing link when it is live.

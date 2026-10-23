@@ -1,0 +1,61 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "HiddenTabby — room for every part of your day",
+  description = "HiddenTabby keeps your browser tabs in named workspaces. Switch between projects in a click, with workspace data stored locally in your browser profile.",
+  isHome = false,
+} = Astro.props;
+
+const sectionHref = (section) => (isHome ? `#${section}` : `/#${section}`);
+const homeHref = isHome ? "#top" : "/#top";
+const currentYear = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f4ea" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/assets/hiddentabby-logo.png" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href={homeHref} aria-label="HiddenTabby home">
+          <img src="/assets/hiddentabby-logo.png" alt="" />
+          <span>HiddenTabby</span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href={sectionHref("how-it-works")}>How it works</a>
+          <a href={sectionHref("privacy")}>Privacy</a>
+        </nav>
+        <span class="store-status"><span class="status-dot" aria-hidden="true"></span>Chrome Web Store <span>coming soon</span></span>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand footer-brand" href={homeHref}>
+          <img src="/assets/hiddentabby-logo.png" alt="" />
+          <span>HiddenTabby</span>
+        </a>
+        <p>Small workspaces for a less tangled browser.</p>
+        <div class="footer-links">
+          <a href={isHome ? "/privacy.html" : "/#privacy"}>
+            {isHome ? "Privacy policy" : "Back to privacy summary"}
+          </a>
+          <span>Built for Chrome &amp; Brave</span>
+        </div>
+        <span class="copyright">© {currentYear} HiddenTabby</span>
+      </div>
+    </footer>
+  </body>
+</html>

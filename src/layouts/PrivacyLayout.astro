@@ -1,0 +1,18 @@
+---
+import SiteLayout from "./SiteLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<SiteLayout title={frontmatter.title} description={frontmatter.description}>
+  <main class="privacy-page container" id="main">
+    <a class="back-link" href="/#top">← Back to HiddenTabby</a>
+    <p class="eyebrow"><span class="section-index">PRIVACY</span> Effective {frontmatter.effectiveDate}</p>
+    <h1>Privacy <em>Policy</em></h1>
+    <p class="privacy-lede">{frontmatter.lede}</p>
+
+    <div class="policy-content">
+      <slot />
+    </div>
+  </main>
+</SiteLayout>

@@ -1,12 +1,15 @@
-# HiddenTabby Privacy Policy
+---
+layout: ../layouts/PrivacyLayout.astro
+title: Privacy Policy — HiddenTabby
+description: How HiddenTabby handles browser workspace information.
+effectiveDate: October 22, 2026
+lede: >-
+  HiddenTabby organizes browser tabs into workspaces. To show and restore those workspaces, it handles a small amount of information from regular (non-incognito) browser windows.
+---
 
-Effective date: October 22, 2026
+## Information HiddenTabby uses
 
-HiddenTabby organizes browser tabs into workspaces. To show and restore those workspaces, it handles the following data from regular (non-incognito) browser windows:
-
-- Web browsing activity: tab URLs and page titles.
-- Workspace names, colors, order, tab membership, and open or saved status.
-- Browser tab, window, and session identifiers needed to reconnect and restore tabs.
+HiddenTabby handles web browsing activity in the form of tab URLs and page titles; workspace names, colors, order, tab membership, and open or saved status; and browser tab, window, and session identifiers needed to reconnect and restore tabs.
 
 HiddenTabby does not read page contents, form entries, or cookies. Pinned tabs and incognito windows are excluded. URLs can contain information present in the address itself, such as search terms or query parameters.
 
