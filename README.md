@@ -8,4 +8,4 @@ Install dependencies with `npm install`, then run `npm run dev` to preview chang
 
 Run `npm test` to build the static site and check the generated pages, feature switcher, privacy disclosures, and local images. `npm run preview` serves the most recent build.
 
-The build keeps the privacy policy at `/privacy.html` for the Chrome Web Store policy link. The store listing calls to action remain placeholders; replace them with the listing link when it is live.
+The public page URLs are `/`, `/privacy`, and `/support`. The site emits canonical links and a sitemap for those HTTPS URLs. Submit `https://hiddentabby.com/sitemap.xml` in Google Search Console after deployment. The store listing calls to action remain placeholders; replace them with the listing link when it is live.

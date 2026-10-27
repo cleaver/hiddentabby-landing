@@ -9,6 +9,8 @@ const {
 
 const sectionHref = (section) => (isHome ? `#${section}` : `/#${section}`);
 const homeHref = isHome ? "#top" : "/#top";
+const canonicalPath = Astro.url.pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
+const canonicalUrl = new URL(canonicalPath, Astro.site).href;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -20,6 +22,7 @@ const currentYear = new Date().getFullYear();
     <meta name="theme-color" content="#f7f4ea" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/png" href="/assets/hiddentabby-logo.png" />
   </head>
   <body>
@@ -49,7 +52,7 @@ const currentYear = new Date().getFullYear();
         </a>
         <p>Small workspaces for a less tangled browser.</p>
         <div class="footer-links">
-          <a href={isHome ? "/privacy.html" : "/#privacy"}>
+          <a href={isHome ? "/privacy" : "/#privacy"}>
             {isHome ? "Privacy policy" : "Back to privacy summary"}
           </a>
           <a href="mailto:meow@hiddentabby.com">Contact</a>
@@ -59,7 +62,7 @@ const currentYear = new Date().getFullYear();
             </svg>
             <span>Open source</span>
           </a>
-          <a href="/support.html">Support</a>
+          <a href="/support">Support</a>
           <span>Built for Chrome &amp; Brave</span>
         </div>
         <span class="copyright">© {currentYear} HiddenTabby</span>

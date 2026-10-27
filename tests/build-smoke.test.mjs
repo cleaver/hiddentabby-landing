@@ -9,12 +9,14 @@ async function readPage(name) {
   return readFile(new URL(`../dist/${name}`, import.meta.url), "utf8");
 }
 
-test("build emits the homepage and stable privacy policy URL", async () => {
+test("build emits the homepage and clean canonical privacy policy URL", async () => {
   const [home, privacy] = await Promise.all([readPage("index.html"), readPage("privacy.html")]);
 
   assert.match(home, /<title>HiddenTabby — room for every part of your day<\/title>/);
-  assert.match(home, /href="\/privacy\.html"/);
+  assert.match(home, /href="\/privacy"/);
+  assert.match(home, /rel="canonical" href="https:\/\/hiddentabby\.com\/"/);
   assert.match(privacy, /<title>Privacy Policy — HiddenTabby<\/title>/);
+  assert.match(privacy, /rel="canonical" href="https:\/\/hiddentabby\.com\/privacy"/);
   assert.match(privacy, /Effective October 22, 2026/);
 });
 
