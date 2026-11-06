@@ -2,6 +2,7 @@
 import FeatureShowcase from "../components/FeatureShowcase.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 // Homepage entry point for the static site build.
+const chromeStoreUrl = "https://chromewebstore.google.com/detail/hiddentabby/nonjheegmgeonamccahabomomcfjlafh";
 ---
 
 <SiteLayout isHome>
@@ -12,8 +13,8 @@ import SiteLayout from "../layouts/SiteLayout.astro";
         <h1>Room for every part of your <em>day.</em></h1>
         <p class="hero-description">Give work, research, and everything else their own browser workspaces. Switch when your focus does.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#how-it-works">See how it works <span aria-hidden="true">↘</span></a>
-          <span class="store-note">Chrome Web Store listing coming soon</span>
+          <a class="button button-primary" href={chromeStoreUrl} target="_blank" rel="noopener noreferrer">Add to Chrome <span aria-hidden="true">↗</span></a>
+          <a class="store-note" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
         </div>
         <div class="hero-meta">
           <span class="meta-item"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 8V6.2a4.5 4.5 0 0 1 9 0V8m-10.2 0h11.4v9H4.3z" /></svg>Saved in this browser profile</span>
@@ -102,8 +103,8 @@ import SiteLayout from "../layouts/SiteLayout.astro";
     <section class="closing-cta" id="get-hidden-tabby">
       <div class="container closing-card">
         <img src="/assets/hiddentabby-logo.png" alt="" class="closing-mascot" />
-        <div><p class="eyebrow">A tidy little tab helper</p><h2>Make room for what’s next.</h2><p>The Chrome Web Store listing is on its way.</p></div>
-        <span class="button button-coming" aria-label="Chrome Web Store listing coming soon">Coming soon <span aria-hidden="true">↗</span></span>
+        <div><p class="eyebrow">A tidy little tab helper</p><h2>Make room for what’s next.</h2><p>Get HiddenTabby from the Chrome Web Store.</p></div>
+        <a class="button button-primary" href={chromeStoreUrl} target="_blank" rel="noopener noreferrer">Add to Chrome <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>

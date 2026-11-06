@@ -9,6 +9,7 @@ const {
 
 const sectionHref = (section) => (isHome ? `#${section}` : `/#${section}`);
 const homeHref = isHome ? "#top" : "/#top";
+const chromeStoreUrl = "https://chromewebstore.google.com/detail/hiddentabby/nonjheegmgeonamccahabomomcfjlafh";
 const canonicalPath = Astro.url.pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
 const canonicalUrl = new URL(canonicalPath, Astro.site).href;
 const currentYear = new Date().getFullYear();
@@ -38,7 +39,7 @@ const currentYear = new Date().getFullYear();
           <a href={sectionHref("how-it-works")}>How it works</a>
           <a href={sectionHref("privacy")}>Privacy</a>
         </nav>
-        <span class="store-status"><span class="status-dot" aria-hidden="true"></span>Chrome Web Store <span>coming soon</span></span>
+        <a class="store-status" href={chromeStoreUrl} target="_blank" rel="noopener noreferrer"><span class="status-dot" aria-hidden="true"></span>Chrome Web Store <span>Get it</span></a>
       </div>
     </header>
 
