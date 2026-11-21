@@ -12,7 +12,7 @@ async function readPage(name) {
 test("build emits the homepage and clean canonical privacy policy URL", async () => {
   const [home, privacy] = await Promise.all([readPage("index.html"), readPage("privacy.html")]);
 
-  assert.match(home, /<title>HiddenTabby — room for every part of your day<\/title>/);
+  assert.match(home, /<title>HiddenTabby — fewer open tabs, more room to focus<\/title>/);
   assert.match(home, /href="\/privacy"/);
   assert.match(home, /rel="canonical" href="https:\/\/hiddentabby\.com\/"/);
   assert.match(privacy, /<title>Privacy Policy — HiddenTabby<\/title>/);
